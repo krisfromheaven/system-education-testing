@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { TuiRoot } from '@taiga-ui/core';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [TuiRoot],
+  imports: [],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
