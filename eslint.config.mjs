@@ -18,10 +18,10 @@ export default defineConfig([
     '**/node_modules/',
     '**/dist/',
     '**/.vscode',
+    '**/.angular',
     '**/.idea',
     '**/*.spec.ts',
     '**/*.d.ts',
-    '.angular/**',
   ]),
   {
     extends: compat.extends('plugin:prettier/recommended'),
