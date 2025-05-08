@@ -21,6 +21,7 @@ export default defineConfig([
     '**/.idea',
     '**/*.spec.ts',
     '**/*.d.ts',
+    '.angular/**',
   ]),
   {
     extends: compat.extends('plugin:prettier/recommended'),
