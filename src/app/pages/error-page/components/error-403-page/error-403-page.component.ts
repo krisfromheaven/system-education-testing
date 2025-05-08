@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import {
   TuiBlockStatusComponent,
   TuiBlockStatusDirective,
@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
   imports: [TuiBlockStatusComponent, TuiBlockStatusDirective, TuiButton],
   templateUrl: './error-403-page.component.html',
   styleUrl: './error-403-page.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Error403PageComponent {
   router: Router = inject(Router);

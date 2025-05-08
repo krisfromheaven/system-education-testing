@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TuiBlockStatus } from '@taiga-ui/layout';
 
 @Component({
@@ -7,5 +7,6 @@ import { TuiBlockStatus } from '@taiga-ui/layout';
   imports: [TuiBlockStatus],
   templateUrl: './error-404-page.component.html',
   styleUrl: './error-404-page.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Error404PageComponent {}
