@@ -1,0 +1,12 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--tui-base-01);
+}
+
+tui-block-status img {
+  inline-size: 20rem;
+  block-size: 20rem;
+}
