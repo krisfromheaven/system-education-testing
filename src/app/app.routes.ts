@@ -1,17 +1,18 @@
+import { MainRoutes } from '@declarations/enums/main-routes.enum';
 import { Routes } from '@angular/router';
 import { CommonRoute } from '@declarations/enums/common-routes.enum';
 import { NavigationRoutes } from '@declarations/enums/navigation-routes.enum';
 
 export const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'test' },
+  { path: '', pathMatch: 'full', redirectTo: MainRoutes.Tests },
   {
-    path: 'test',
+    path: MainRoutes.Tests,
     loadComponent: () =>
       import('./pages/test-layout/test-layout.component').then(
         (c) => c.TestLayoutComponent,
       ),
     loadChildren: () =>
-      import('./pages/test-layout/test.routes').then((m) => m.testRoutes),
+      import('./pages/test-layout/test.routes').then((r) => r.testRoutes),
   },
   {
     path: CommonRoute.NotFound,
