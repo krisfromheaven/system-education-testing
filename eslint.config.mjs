@@ -45,9 +45,8 @@ export default defineConfig([
     },
 
     rules: {
-      '@typescript-eslint/no-namespace': 'off',
       '@typescript-eslint/no-explicit-any': 'error',
-      '@typescript-eslint/explicit-function-return-type': 'error',
+      '@typescript-eslint/explicit-function-return-type': 'off',
 
       '@typescript-eslint/no-unused-vars': [
         'error',
