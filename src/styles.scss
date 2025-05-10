@@ -1,2 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @use '@taiga-ui/core/styles/taiga-ui-local.scss';
+@use './app/styles/reset.scss';
+@use './app/styles/sizes.scss';
+
+tui-textfield {
+  border: 1px solid;
+}

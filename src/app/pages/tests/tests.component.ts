@@ -2,6 +2,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TestsRoutes } from '@declarations/enums/tests-routes.enum';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { NgForOf } from '@angular/common';
+import { TuiTabs } from '@taiga-ui/kit';
+import { TestFilterService } from '@services/test-filter.service';
 
 interface Tab {
   label: string;
@@ -11,12 +13,15 @@ interface Tab {
 @Component({
   selector: 'app-test-layout',
   standalone: true,
-  templateUrl: './test-layout.component.html',
-  styleUrl: './test-layout.component.scss',
-  imports: [RouterLinkActive, RouterOutlet, RouterLink, NgForOf],
+  templateUrl: './tests.component.html',
+  styleUrl: './tests.component.scss',
+  imports: [RouterLinkActive, RouterOutlet, RouterLink, NgForOf, TuiTabs],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [TestFilterService],
 })
-export class TestLayoutComponent {
+export class TestsComponent {
+  activeIndex: number = 0;
+
   tabs: Tab[] = [
     {
       label: 'Тесты',

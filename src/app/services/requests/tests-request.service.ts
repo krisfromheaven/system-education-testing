@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '@env/environment';
 import { PaginationData } from '@declarations/interfaces/commons/pagination-data.interface';
@@ -8,28 +8,32 @@ import { TestFilter } from '@declarations/interfaces/test/test-filter.interface'
 import { Uuid } from '@shared/type/uuid.type';
 import { TestModel } from '@declarations/models/test.model';
 import { Successfully } from '@shared/type/successfully.type';
+import { isNil } from '@helpers/isNil.function';
 
 @Injectable()
 export class TestsRequestService {
-  private readonly requestUrl: string = `${environment.baseUrl}/tests`;
+  private readonly requestUrl: string = `${environment.baseUrl}/api/v1/tests`;
 
-  constructor(private readonly httpClient: HttpClient) {}
+  httpClient: HttpClient = inject(HttpClient);
 
   get(
-    data: PaginationPayload<TestFilter>,
+    data: PaginationPayload<Partial<TestFilter>>,
   ): Observable<PaginationData<TestModel.View>> {
     const { offset, limit, search } = data;
+    const params = new HttpParams({
+      fromObject: {
+        ...data.payload,
+        offset,
+        limit,
+      },
+    });
+    if (!isNil(search)) {
+      params.set('search', search);
+    }
     return this.httpClient.get<PaginationData<TestModel.View>>(
       this.requestUrl,
       {
-        params: new HttpParams({
-          fromObject: {
-            ...data.payload,
-            search: search ?? '',
-            offset,
-            limit,
-          },
-        }),
+        params,
       },
     );
   }

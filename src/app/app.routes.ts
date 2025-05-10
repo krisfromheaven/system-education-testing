@@ -7,17 +7,15 @@ export const routes: Routes = [
   {
     path: 'test',
     loadComponent: () =>
-      import('./pages/test-layout/test-layout.component').then(
-        (c) => c.TestLayoutComponent,
-      ),
+      import('@pages/tests/tests.component').then((c) => c.TestsComponent),
     loadChildren: () =>
-      import('./pages/test-layout/test.routes').then((m) => m.testRoutes),
+      import('./pages/tests/test.routes').then((m) => m.testRoutes),
   },
   {
     path: CommonRoute.NotFound,
     loadComponent: () =>
       import(
-        './pages/error-page/components/error-404-page/error-404-page.component'
+        './pages/error-pages/components/error-404-page/error-404-page.component'
       ).then((c) => c.Error404PageComponent),
     title: NavigationRoutes.NonFound,
   },
@@ -25,7 +23,7 @@ export const routes: Routes = [
     path: CommonRoute.Forbidden,
     loadComponent: () =>
       import(
-        './pages/error-page/components/error-403-page/error-403-page.component'
+        './pages/error-pages/components/error-403-page/error-403-page.component'
       ).then((c) => c.Error403PageComponent),
     title: NavigationRoutes.Forbidden,
   },

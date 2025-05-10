@@ -33,8 +33,8 @@ export namespace TestModel {
     id: Uuid;
     shortName: string;
     fullName: Nullable<string>;
-    type: Nullable<string>;
-    purpose: Nullable<string>;
+    type: Nullable<TestTypes>;
+    purpose: Nullable<TestPurposes>;
     objective: Nullable<string>;
     description: Nullable<string>;
     defaultSessionSettings: Nullable<DefaultSessionSettings>;
