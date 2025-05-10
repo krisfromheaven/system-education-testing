@@ -1,0 +1,28 @@
+.section {
+  margin: var(--semi-md-size);
+}
+
+.control {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--sm-size);
+    margin-bottom: var(--semi-md-size);
+  }
+
+  &__item {
+    flex: 1;
+  }
+}
+
+.search {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--sm-size);
+  }
+
+  &__field {
+    flex: 1;
+  }
+}

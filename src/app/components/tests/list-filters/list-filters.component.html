@@ -1,0 +1,94 @@
+<section class="section">
+  <div class="control__wrapper">
+    <div class="control__item">
+      <span>Тип теста</span>
+      <tui-multi-select
+        [editable]="false"
+        [formControl]="typeControl"
+        [tuiTextfieldCleaner]="true"
+        [tuiTextfieldLabelOutside]="true"
+        [stringify]="stringifyItem"
+      >
+        Выберите типы теста
+
+        <tui-data-list *tuiDataList>
+          <tui-opt-group label=" " tuiMultiSelectGroup>
+            <button
+              *ngFor="let item of typeItems"
+              tuiOption
+              type="button"
+              [value]="item"
+            >
+              {{ item.label }}
+            </button>
+          </tui-opt-group>
+        </tui-data-list>
+      </tui-multi-select>
+    </div>
+
+    <div class="control__item">
+      <span>Дисциплина</span>
+      <tui-multi-select
+        class="item"
+        [editable]="false"
+        [formControl]="disciplinesControl"
+        [tuiTextfieldCleaner]="true"
+        [tuiTextfieldLabelOutside]="true"
+        [stringify]="stringifyItem"
+      >
+        Выберите дисциплину
+
+        <tui-data-list *tuiDataList>
+          <tui-opt-group label=" " tuiMultiSelectGroup>
+            <button
+              *ngFor="let item of disciplinesItems$ | async"
+              tuiOption
+              type="button"
+              [value]="item"
+            >
+              {{ item.label }}
+            </button>
+          </tui-opt-group>
+        </tui-data-list>
+      </tui-multi-select>
+    </div>
+
+    <div class="control__item">
+      <span>Назначение теста</span>
+      <tui-multi-select
+        class="item"
+        [editable]="false"
+        [formControl]="purposesControl"
+        [tuiTextfieldCleaner]="true"
+        [tuiTextfieldLabelOutside]="true"
+        [stringify]="stringifyItem"
+      >
+        Укажите назначения теста
+
+        <tui-data-list *tuiDataList>
+          <tui-opt-group label=" " tuiMultiSelectGroup>
+            <button
+              *ngFor="let item of purposesItems"
+              tuiOption
+              type="button"
+              [value]="item"
+            >
+              {{ item.label }}
+            </button>
+          </tui-opt-group>
+        </tui-data-list>
+      </tui-multi-select>
+    </div>
+  </div>
+
+  <div class="search__wrapper">
+    <tui-textfield class="search__field">
+      <label tuiLabel>Поиск</label>
+      <input [formControl]="searchControl" />
+    </tui-textfield>
+
+    <button iconStart="@tui.plus" tuiButton type="button" (click)="addTest()">
+      Добавить тест
+    </button>
+  </div>
+</section>
