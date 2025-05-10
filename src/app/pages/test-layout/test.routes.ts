@@ -3,7 +3,6 @@ import { TestsRoutes } from '@declarations/enums/tests-routes.enum';
 
 export const testRoutes: Routes = [
   {
-    title: 'Тесты',
     path: TestsRoutes.List,
     loadComponent: () =>
       import('@pages/test-layout/components/list/list.component').then(
@@ -11,7 +10,6 @@ export const testRoutes: Routes = [
       ),
   },
   {
-    title: 'Методичка по тестам',
     path: TestsRoutes.Manual,
     loadComponent: () =>
       import('@pages/test-layout/components/manual/manual.component').then(
@@ -19,7 +17,6 @@ export const testRoutes: Routes = [
       ),
   },
   {
-    title: 'История выполнений',
     path: TestsRoutes.History,
     loadComponent: () =>
       import('@pages/test-layout/components/history/history.component').then(
