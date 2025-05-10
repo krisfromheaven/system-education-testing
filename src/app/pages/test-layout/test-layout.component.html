@@ -1,4 +1,8 @@
-<ng-container *ngFor="let tab of tabs">
-  <a routerLinkActive="active" [routerLink]="tab.url"> {{ tab.label }} </a>
-</ng-container>
+<tui-tabs [(activeItemIndex)]="activeItemIndex">
+  <ng-container *ngFor="let tab of tabs">
+    <a tuiTab routerLinkActive="active" [routerLink]="tab.url">
+      {{ tab.label }}
+    </a>
+  </ng-container>
+</tui-tabs>
 <router-outlet />
